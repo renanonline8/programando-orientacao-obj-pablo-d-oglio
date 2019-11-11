@@ -18,3 +18,7 @@ print 'A propriedade quantidade existe? ' . (isset($produto->quantidade) ? 'Sim'
 
 unset($produto->valor);
 print 'A propriedade valor existe? ' . (isset($produto->valor) ? "Sim" : "Não") . " \n";
+
+print $produto->print_r();
+
+print $produto->count();

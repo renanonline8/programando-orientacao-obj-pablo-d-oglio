@@ -22,4 +22,9 @@ class ObjectData
     {
         unset($this->data[$attr]);
     }
+
+    public function __call(String $method, Array $parameters)
+    {
+        return call_user_func($method, get_object_vars($this));
+    }
 }
