@@ -3,25 +3,25 @@ $classes = spl_classes();
 
 foreach ($classes as $classe) {
     $rc = new ReflectionClass($classe);
-    print $classe . PHP_EOL;
+    print $classe . '<br />' . PHP_EOL;
 
     foreach ($rc->getMethods() as $method) {
-        print '   ' . $method->getName();
+        print str_repeat('&nbsp;', 4) . $method->getName();
 
         print '(';
-        $parameters = array();
+        $paramNames = array();
         $parameters = $method->getParameters();
         if (count($parameters) > 0) {
             foreach ($parameters as $parameter) {
                 if ($parameter->isOptional()) {
                     $paramNames[] = '[' . $parameter->getName() . ']';
                 } else {
-                    $paramNames[] = '[' . $parameter->getName();
+                    $paramNames[] = $parameter->getName();
                 }
             }
         }
         print implode(', ', $paramNames);
         print ')';
-        print PHP_EOL;
+        print '<br />' . PHP_EOL;
     }
 }
