@@ -16,7 +16,7 @@ class Record
     public function save()
     {
         print 'INSERT INTO ' . $this::TABLENAME .
-        '(' . implode(',' array_keys($this->data)) . ') VALUES ' .
+        '(' . implode(',', array_keys($this->data)) . ') VALUES ' .
         "('" . implode("','", array_values($this->data)) . "')";
     }
 
