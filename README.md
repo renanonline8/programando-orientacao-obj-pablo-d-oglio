@@ -7,4 +7,4 @@ Fonte: DALL'OGLIO Pablo. PHP: Programando com Orientação a Objetos. 3 ed. 3ª 
 1. Capítulo 1 - Introdução ao PHP
 2. Capítulo 2 - Fundamentos de orientação a objetos
 3. Capítulo 3 - Tópicos especiais em orientação a objetos
-   - [Traits](cap-3/traits/README.md)
+   - [Traits](cap-3/traits)
