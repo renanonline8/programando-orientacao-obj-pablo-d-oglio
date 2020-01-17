@@ -3,6 +3,10 @@
 ## Fonte
 Fonte: DALL'OGLIO Pablo. PHP: Programando com Orientação a Objetos. 3 ed. 3ª Reimpressão. São Paulo: Novatec Editora Ltda, 2017
 
+## Como iniciar o vagrant
+``` vagrant up ```
+``` vagrant ssh ```
+
 ## Índice
 1. Capítulo 1 - Introdução ao PHP
 2. Capítulo 2 - Fundamentos de orientação a objetos
