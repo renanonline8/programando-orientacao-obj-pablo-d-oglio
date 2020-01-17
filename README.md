@@ -14,3 +14,5 @@ Fonte: DALL'OGLIO Pablo. PHP: Programando com Orientação a Objetos. 3 ed. 3ª 
    - [Traits](cap-3/traits)
    - [PSR](cap-3/psr)
    - [SPL Autoload](cap-3/spl-autoload)
+4. Capítulo 4 - Persistência
+   - [Introdução](cap-4/introducao)
