@@ -2,32 +2,21 @@
 class ProdutoGateway
 {
     private static $conn;
-    private $data;
-    
-    function __get($prop)
-    {
-        return $this->data[$prop];
-    }
-
-    function __set($prop, $value)
-    {
-        $this->data[$prop] = $value;
-    }
     
     public static function setConnection( PDO $conn )
     {
         self::$conn = $conn;
     }
     
-    public static function find($id)
+    public function find($id, $class = 'stdClass')
     {
         $sql = "SELECT * FROM produto where id = '$id' ";
         print "$sql <br>\n";
         $result = self::$conn->query($sql);
-        return $result->fetchObject(__CLASS__);
+        return $result->fetchObject($class);
     }
 
-    public static function all($filter = '')
+    public function all($filter, $class = 'stdClass')
     {
         $sql = "SELECT * FROM produto  ";
         if ($filter) {
@@ -35,40 +24,40 @@ class ProdutoGateway
         }
         print "$sql <br>\n";
         $result = self::$conn->query($sql);
-        return $result->fetchAll(PDO::FETCH_CLASS, __CLASS__);
+        return $result->fetchAll(PDO::FETCH_CLASS, $class);
     }
-    
-    public function delete()
+
+    public function delete($id)
     {
-        $sql = "DELETE FROM produto where id = '{$this->id}' ";
+        $sql = "DELETE FROM produto where id = '$id' ";
         print "$sql <br>\n";
         return self::$conn->query($sql);
     }
 
-    public function save()
+    public function save($data)
     {
-        if (empty($this->data['id'])) {
+        if (empty($data->id)) {
             $id = $this->getLastId() +1;
             $sql = "INSERT INTO produto (id, descricao, estoque, preco_custo, ".
                                    "      preco_venda, codigo_barras, data_cadastro, origem)" .
                                    " VALUES ('{$id}', " .
-                                            "'{$this->descricao}', " .
-                                            "'{$this->estoque}', " .
-                                            "'{$this->preco_custo}', " .
-                                            "'{$this->preco_venda}', " .
-                                            "'{$this->codigo_barras}', " .
-                                            "'{$this->data_cadastro}', " .
-                                            "'{$this->origem}')";
+                                            "'{$data->descricao}', " .
+                                            "'{$data->estoque}', " .
+                                            "'{$data->preco_custo}', " .
+                                            "'{$data->preco_venda}', " .
+                                            "'{$data->codigo_barras}', " .
+                                            "'{$data->data_cadastro}', " .
+                                            "'{$data->origem}')";
         }
         else {
-            $sql = "UPDATE produto SET descricao     = '{$this->descricao}', " .
-                                "       estoque       = '{$this->estoque}', " .
-                                "       preco_custo   = '{$this->preco_custo}', " .
-                                "       preco_venda   = '{$this->preco_venda}', ".
-                                "       codigo_barras = '{$this->codigo_barras}', ".
-                                "       data_cadastro = '{$this->data_cadastro}', ".
-                                "       origem        = '{$this->origem}' ".
-                                "WHERE  id            = '{$this->id}'";
+            $sql = "UPDATE produto SET descricao     = '{$data->descricao}', " .
+                                "       estoque       = '{$data->estoque}', " .
+                                "       preco_custo   = '{$data->preco_custo}', " .
+                                "       preco_venda   = '{$data->preco_venda}', ".
+                                "       codigo_barras = '{$data->codigo_barras}', ".
+                                "       data_cadastro = '{$data->data_cadastro}', ".
+                                "       origem        = '{$data->origem}' ".
+                                "WHERE  id            = '{$data->id}'";
         }
         print "$sql <br>\n";
         return self::$conn->exec($sql);   // executa instrucao SQL
