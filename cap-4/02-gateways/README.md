@@ -19,3 +19,9 @@ O método find recebe o ID do registro como parâmetro, executa uma query simple
 O método save() é responsável por persistir o registro na base de dados. Ele recebe como parâmetro um objeto de transporte de dados, conhecido pelo nome de Data Transfer Object. Um Data Transfer Object é um objeto sem relacionamentos usado como parâmetro de um método para transportar dados para ele através de propriedades. O método save tem dupla função, inserir um registro novo, quando este não existe, ou atualizar um registro já existente.
 
 O arquivo [exemplo_tdg.php](ProdutoGatewayExemple/exemplo_tdg.php) exemplifica o uso desta classe. O objeto a ser passado para o método save é criado usando a classe StdClass que permite a criação de um objeto sem a criação de uma estrutura.
+
+O Table Data Gateway não foi projetado para funcionar sozinho, ele precisa de um objeto de domínio. Neste exemplo criaremos a classe produto que terá os métodos setConnection, find, all, delete e save que são métodos de persistências que passaram seus parametros para a classe de Table Data Gateway, além de getMargemLucro e registraCompra que são métodos de negócio.
+
+![Table Data Gateway em uso](../../assets/Table_Data_Gateway_em_uso.png)
+
+A classe Produto usa a classe Table Data Gateway, configurando uma relação de composição, já que a classe ProdutoGatewayExample (parte) é instânciada e usada dentro do objeto Produto (todo)
