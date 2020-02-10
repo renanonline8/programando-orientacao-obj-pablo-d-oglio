@@ -16,4 +16,4 @@ Fonte: DALL'OGLIO Pablo. PHP: Programando com Orientação a Objetos. 3 ed. 3ª 
    - [SPL Autoload](cap-3/spl-autoload)
 4. Capítulo 4 - Persistência
    - [Introdução](cap-4/01-introducao)
-   - [Gateways](cap-4/02-gateways)
+   - [Gateways](cap-4/02-gateways/README.md)
