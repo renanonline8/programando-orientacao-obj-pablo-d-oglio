@@ -17,6 +17,8 @@ entre Venda e Produto, uma Venda possuirá muitos Produtos. Venda receberá esse
 objetos através do método addItem(quantidade : float, pro : Produto), Venda não
 instanciará Produto por isso é uma associação[^2].
 
+![Data Mapper Schema](assets/Data_Mapper_Schema.png)
+
 ## Fontes
 [^1]: DALL'OGLIO Pablo. PHP: Programando com Orientação a Objetos. 3 ed. 3ª Reimpressão. São Paulo: Novatec Editora Ltda, 2017  
 [^2]: https://designpatternsphp.readthedocs.io/pt_BR/latest/Structural/DataMapper/README.html
