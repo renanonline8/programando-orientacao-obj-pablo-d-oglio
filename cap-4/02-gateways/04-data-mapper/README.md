@@ -17,6 +17,12 @@ entre Venda e Produto, uma Venda possuirá muitos Produtos. Venda receberá esse
 objetos através do método addItem(quantidade : float, pro : Produto), Venda não
 instanciará Produto por isso é uma associação[^2].
 
+## Exemplos do livro
+- [Produto.php](../../../exemplos-do-livro/cap5/classes/dm/Produto.php)
+- [Venda.php](../../../exemplos-do-livro/cap5/classes/dm/Venda.php)
+- [VendaMapper.php](../../../exemplos-do-livro/cap5/classes/dm/VendaMapper.php)
+- [exemplo_dm.php](../../../exemplos-do-livro/cap5/exemplo_dm.php)
+
 ![Data Mapper Schema](assets/Data_Mapper_Schema.png)
 
 ## Fontes
